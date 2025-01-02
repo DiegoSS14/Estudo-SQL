@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  rede_principal:
+    driver: bridge
+
+services:
+  db_mysql:
+    image: mysql:8.0.11
+    networks:
+      - rede_principal
+    environment:
+      - MYSQL_ROOT_PASSWORD=34346
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
